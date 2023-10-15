@@ -20,7 +20,7 @@ sudo echo '<html>
     <body>
         <h1>Success! The '"$your_domain"' server block is working!</h1>
     </body>
-</html>' >> /var/www/"$your_domain"/html/index.html
+</html>' > /var/www/"$your_domain"/html/index.html
 
 # Create an Nginx server block
 sudo echo "server {
@@ -35,7 +35,7 @@ sudo echo "server {
     location / {
         try_files \$uri \$uri/ =404;
     }
-}" >> /etc/nginx/sites-available/"$your_domain"
+}" > /etc/nginx/sites-available/"$your_domain"
 
 # Enable the Nginx server block
 sudo ln -s /etc/nginx/sites-available/"$your_domain" /etc/nginx/sites-enabled/
